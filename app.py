@@ -8,7 +8,7 @@ url = 'https://andjijonchoyxonabot.pythonanywhere.com/'+secret
 bot.remove_webhook()
 bot.set_webhook(url=url)
 app = Flask(__name__)
-@app.route('/',methods=['POST'])
+@app.route('/'+secret,methods=['POST'])
 def set_hook():
     update = telebot.types.Update.de_json(request.stream.read().decode('utf-8'))
     bot.process_new_updates([update])
